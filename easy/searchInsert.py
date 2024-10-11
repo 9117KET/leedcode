@@ -83,3 +83,22 @@ Since nums[mid] equals the target, we return mid:
 return mid  # returns 2
 
 '''
+
+"""
+We return left at the end of the binary search because left will point to the correct insertion position in the sorted array when the target is not found. Here's why:
+
+Key Idea:
+In Binary Search, we narrow down the search space by adjusting the left and right pointers based on whether the middle element (nums[mid]) is less than or greater than the target.
+The algorithm eventually either finds the target or exhausts the search space. When the search space is exhausted, the left pointer will be at the exact position where the target should be inserted to maintain the sorted order.
+How It Works:
+If the target is found:
+
+If nums[mid] == target, we immediately return mid, as the target exists at this index.
+If the target is not found:
+
+After the while loop ends, left will be the index where the target should be inserted.
+This is because at the end of the search:
+All elements to the left of left are smaller than the target.
+All elements to the right of left (i.e., starting from left itself) are greater than the target.
+Therefore, the target should be inserted at the index left to maintain the sorted order.
+"""
